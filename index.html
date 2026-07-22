@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rutina">
+<meta name="theme-color" content="#14261f">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzklEQVR4nGNkwALkrI3+YxOnFDw6eo4RXQxFgFYW43MIE70tR7eLid6WozuCiZBCWgPGgfA9MhjwEBh1wKgDWLAJnirnwhAz6/xGsuHEmIPVATDA5rgJzr7gyMBg4OFCtOUXduxB4f/a74dV3YBHwYA7AG8UoAP0YKUGGPAQGHAHkBQFlOQCXGDAQ4BoB5Die3SAqwxgYMDRHkAvwcgpBYk1Z7RBMuqAgXcAtu4SvcCjo+cYBz4EYC6ht8UwO5nQBehpOQMDWu8YBujZPQcApBFA5ayiH5YAAAAASUVORK5CYII">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAEN0lEQVR4nO3dPW4TQRzG4XWEKDhEzoBS0KSKREHFdTgD16GiQKJKQxHlDDkEBU0oQpAD/pj1zu7svH6eBokPZ5j9+Z+J10o2wwpcXl89tl4D0z3c3m1ar6HJAgR8HloEvtgHFPF5WyruWT+IiNllzrhneWAhU2KOsC9qP6CYKTVHK9WeIUJmilrTusqEFjNT1Wpo0rNCyMxhyrQ+eUKLmblMaeukoMXM3E5tbHTQYmYpp7Q2Kmgxs7SxzRUHLWZaGdNeUdBiprXSBo8GLWbWoqTF6re+oaWDQZvOrM2xJvcGLWbW6lCbjhxE2Rm06cza7Wv0v6DFTC92terIQZQXQZvO9ObfZk1oogiaKH+DdtygV9vtmtBEETRRLobBcYP+PTdsQhNF0EQRNFE2zs8kMaGJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJ8qr1Ap79+PRm1N9/9/nnTCthGPq9Hqv4VmBjN2/bWjYySc/Xo/mRY8rm1fj3vNT79WgadK3/fOtNTJFwPZpPaKhJ0EQRNFEETRRBE0XQRBE0UVZz67vU65svO3///ubp17cf3i+4mv7df/128M9/ff+40Erq6GpC74t52/3Xb0cvEk9K9un1zZeifV+LboIeu6miPmzs/vQSdTdBQwlBE0XQRBE0UQRNFEETRdBEETRRBE0UQROluzcnjeH29/kxoYkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKJEv33U97nbL/WttSY0UQRNFEETRdBEETRRBE0UQRNF0EQRNFG6CXrsT2Nyl/CwsfvTy0/D6iZoKNFV0CVT4u2H96ZzoZJ9+vX9YzfTeRg6fHPSvs199/nnwivJsB31j09vGq6kjq4mNBwjaKIImiiCJoqgiSJoojQNutZLbV6yqyPhepjQRGke9NRns+lcV+/XY3N5ffXYdAV/jL1L1Xrj0vV6PVYTNNTQ/MgBNQmaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiXLxcHu3ab0IqOHh9m5jQhNF0EQRNFEuhuHp7NF6ITDFc8MmNFEETZS/QTt20Kvtdk1oogiaKC+CduygN/82a0IT5b+gTWl6savVnRNa1KzdvkYdOYiyN2hTmrU61ObBCS1q1uZYk44cRDkatCnNWpS0WDShRU1rpQ0WHzlETStj2ht1hhY1Sxvb3OgvCkXNUk5p7aRXOUTN3E5t7OSX7UTNXKa0VSXKy+urxxqPw3mrMSSr3FgxrZmqVkPVQzStGaP2MKx+69u0ptQcrcwan2nNLnMOvcWmqbjP21KfuZscD8R9HlocP1dx3hV4hjV8/fQb0PEanY/EqKIAAAAASUVORK5CYII">
+<title>Rutina — App</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap');
+
+  :root{
+    --bg: #14261f;
+    --card: #1d3830;
+    --card2: #234238;
+    --chalk: #eef3ee;
+    --dim: #a9bdb2;
+    --tape: #e8b23c;
+    --danger: #e2694b;
+    --ok: #6fbf8b;
+    --line: rgba(238,243,238,0.14);
+  }
+
+  *{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+  html,body{height:100%;}
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--chalk);
+    font-family: 'Barlow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: contain;
+  }
+
+  /* ---- App shell ---- */
+  .app{
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    background: var(--bg);
+    position:relative;
+  }
+
+  .topbar{
+    position: sticky;
+    top:0;
+    z-index: 5;
+    background: var(--bg);
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .topbar .eyebrow{
+    font-family:'Barlow Condensed', sans-serif;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tape);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .topbar h1{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+    margin: 2px 0 10px;
+  }
+
+  .progress-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .progress-bar{
+    flex:1;
+    height: 6px;
+    background: rgba(238,243,238,0.1);
+    border-radius: 4px;
+    overflow:hidden;
+  }
+
+  .progress-fill{
+    height:100%;
+    background: var(--tape);
+    width: 0%;
+    transition: width .25s ease;
+  }
+
+  .progress-label{
+    font-size: 12px;
+    color: var(--dim);
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  /* ---- Content ---- */
+  .content{
+    flex:1;
+    padding: 16px 16px 100px;
+  }
+
+  .day-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin: 6px 4px 14px;
+  }
+
+  .day-heading .title{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    text-transform:uppercase;
+    color: var(--dim);
+  }
+
+  .day-heading .count{
+    font-size: 12px;
+    color: var(--dim);
+    font-family:'Barlow Condensed', sans-serif;
+  }
+
+  .card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow:hidden;
+    transition: opacity .2s ease;
+  }
+
+  .card.done{ opacity: 0.55; }
+
+  .card-head{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    padding: 14px 14px;
+    cursor:pointer;
+  }
+
+  .icon-wrap{
+    width: 52px;
+    height: 52px;
+    background: rgba(238,243,238,0.06);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .icon-wrap svg{ width: 34px; height: 34px; }
+
+  .card-titles{ flex:1; min-width:0; }
+
+  .ex-name{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height:1.25;
+  }
+
+  .ex-sets{
+    font-size: 12.5px;
+    color: var(--tape);
+    font-weight:600;
+    margin-top: 2px;
+  }
+
+  .check{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--line);
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: transparent;
+    font-size: 14px;
+  }
+
+  .card.done .check{
+    background: var(--ok);
+    border-color: var(--ok);
+    color: #0c1e16;
+  }
+
+  .chevron{
+    color: var(--dim);
+    font-size: 18px;
+    flex-shrink:0;
+    transition: transform .2s ease;
+  }
+
+  .card.open .chevron{ transform: rotate(180deg); }
+
+  .card-body{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height .25s ease;
+    padding: 0 16px;
+  }
+
+  .card.open .card-body{
+    max-height: 600px;
+    padding: 0 16px 16px;
+  }
+
+  .note{
+    display:inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 2px 0 10px;
+  }
+
+  .how, .avoid{
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 10px;
+    color: var(--dim);
+  }
+  .how b{ color: var(--chalk); font-weight:600; }
+  .avoid{ color: #f2c9bd; }
+  .avoid b{ color: var(--danger); font-weight:600; }
+
+  .photo-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 8px;
+    width:100%;
+    padding: 11px;
+    background: rgba(232,178,60,0.12);
+    border: 1px solid var(--tape);
+    color: var(--tape);
+    border-radius: 9px;
+    font-family:'Barlow', sans-serif;
+    font-weight:600;
+    font-size: 14px;
+    text-decoration:none;
+    margin-top: 2px;
+  }
+
+  .photo-btn:active{ background: rgba(232,178,60,0.22); }
+
+  /* ---- Bottom tab bar ---- */
+  .tabbar{
+    position: fixed;
+    bottom:0;
+    left:0; right:0;
+    max-width: 480px;
+    margin: 0 auto;
+    display:flex;
+    background: #102019;
+    border-top: 1px solid var(--line);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    z-index: 10;
+  }
+
+  .tab{
+    flex:1;
+    text-align:center;
+    padding: 12px 4px 10px;
+    color: var(--dim);
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size: 13px;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    border-top: 2px solid transparent;
+  }
+
+  .tab.active{
+    color: var(--tape);
+    border-top-color: var(--tape);
+  }
+
+  .tab .sub{
+    display:block;
+    font-family:'Barlow', sans-serif;
+    font-weight:400;
+    text-transform:none;
+    font-size: 10.5px;
+    color: var(--dim);
+    letter-spacing:0;
+    margin-top:2px;
+  }
+
+  .foot-note{
+    text-align:center;
+    color: var(--dim);
+    font-size: 12px;
+    padding: 4px 20px 12px;
+    line-height:1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="topbar">
+    <div class="eyebrow">Cadera protegida · Full body</div>
+    <h1>Mi Rutina</h1>
+    <div class="progress-row">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0/5 hoy</div>
+    </div>
+  </div>
+
+  <div class="content" id="content"></div>
+
+  <div class="tabbar" id="tabbar"></div>
+
+</div>
+
+<script>
+const DAYS = [
+  {
+    id: 1,
+    label: "Día 1",
+    sub: "Empuje + Glúteo",
+    exercises: [
+      {
+        name: "Press de banca",
+        sets: "4 x 8–10",
+        query: "press de banca técnica ejecución",
+        how: "Acostado en el banco, agarrá la barra un poco más ancha que los hombros, bajala controlada hasta rozar el pecho y empujá hacia arriba sin trabar el codo del todo.",
+        avoid: "Rebotar la barra en el pecho, arquear en exceso la zona lumbar, abrir los codos a 90° (sobrecarga el hombro).",
+        icon: `<line x1="20" y1="55" x2="80" y2="55"/><rect x="30" y="48" width="8" height="14" fill="#e8b23c" stroke="none"/><rect x="62" y="48" width="8" height="14" fill="#e8b23c" stroke="none"/><rect x="35" y="60" width="30" height="10" rx="2"/><circle cx="50" cy="30" r="7"/><line x1="50" y1="37" x2="50" y2="55"/><line x1="50" y1="55" x2="20" y2="55"/><line x1="50" y1="55" x2="80" y2="55"/><line x1="50" y1="62" x2="42" y2="80"/><line x1="50" y1="62" x2="58" y2="80"/>`
+      },
+      {
+        name: "Press militar (hombros)",
+        sets: "3 x 10",
+        query: "press militar mancuernas técnica",
+        how: "De pie o sentado, empujá las mancuernas o la barra desde la altura de los hombros hacia arriba, sin bloquear del todo el codo en la parte alta.",
+        avoid: "Arquear la zona lumbar para \"ayudar\" el empuje, bajar el peso muy rápido sin control, usar impulso de piernas si no es la intención.",
+        icon: `<circle cx="50" cy="22" r="7"/><line x1="50" y1="29" x2="50" y2="60"/><line x1="50" y1="35" x2="30" y2="15"/><line x1="50" y1="35" x2="70" y2="15"/><rect x="24" y="8" width="8" height="10" fill="#e8b23c" stroke="none"/><rect x="68" y="8" width="8" height="10" fill="#e8b23c" stroke="none"/><line x1="50" y1="60" x2="38" y2="85"/><line x1="50" y1="60" x2="62" y2="85"/>`
+      },
+      {
+        name: "Fondos en paralelas (tríceps)",
+        sets: "3 x 12",
+        query: "fondos en paralelas triceps técnica",
+        how: "Cuerpo suspendido entre las barras, bajá flexionando los codos hasta unos 90° y empujá de vuelta hacia arriba.",
+        avoid: "Bajar demasiado (sobrecarga el hombro), inclinar mucho el torso hacia adelante, hacerlo con dolor de hombro previo. Alternativa: press francés con mancuerna.",
+        icon: `<line x1="30" y1="20" x2="30" y2="60"/><line x1="70" y1="20" x2="70" y2="60"/><circle cx="50" cy="20" r="7"/><line x1="50" y1="27" x2="50" y2="45"/><line x1="50" y1="30" x2="30" y2="40"/><line x1="50" y1="30" x2="70" y2="40"/><line x1="50" y1="45" x2="40" y2="70"/><line x1="50" y1="45" x2="60" y2="70"/>`
+      },
+      {
+        name: "Hip thrust",
+        sets: "3 x 10–12",
+        query: "hip thrust barra técnica",
+        flag: "Confirmar con traumatólogo",
+        how: "Espalda alta apoyada en un banco, barra sobre la cadera, empujá hacia arriba apretando los glúteos hasta que el cuerpo quede en línea recta.",
+        avoid: "Hiperextender la zona lumbar en el tope, empezar con cargas altas antes de confirmar tolerancia de la cadera, que el banco se deslice.",
+        icon: `<line x1="15" y1="70" x2="45" y2="70"/><line x1="45" y1="70" x2="60" y2="50"/><circle cx="68" cy="42" r="7"/><line x1="60" y1="50" x2="80" y2="70"/><line x1="45" y1="70" x2="40" y2="85"/><line x1="60" y1="50" x2="55" y2="30"/><rect x="46" y="24" width="8" height="10" fill="#e8b23c" stroke="none"/>`
+      },
+      {
+        name: "Plancha abdominal",
+        sets: "3 x 30–40s",
+        query: "plancha abdominal técnica",
+        how: "Apoyo en antebrazos y puntas de pie, cuerpo en línea recta desde la cabeza hasta los talones, abdomen contraído.",
+        avoid: "Que la cadera caiga (hunde la lumbar) o se levante demasiado (pierde tensión), aguantar la respiración.",
+        icon: `<line x1="12" y1="60" x2="88" y2="60"/><circle cx="18" cy="52" r="7"/><line x1="24" y1="58" x2="80" y2="65"/>`
+      }
+    ]
+  },
+  {
+    id: 2,
+    label: "Día 2",
+    sub: "Tracción + Isquios",
+    exercises: [
+      {
+        name: "Dominadas / Jalón al pecho",
+        sets: "4 x 8–10",
+        query: "jalón al pecho técnica dominadas",
+        how: "Agarrá la barra más ancha que los hombros y llevá el pecho hacia la barra (o la barra hacia el pecho en el jalón), codos hacia abajo y atrás.",
+        avoid: "Balancearse con impulso del cuerpo, no completar el rango de movimiento, llevar la barra detrás de la nuca.",
+        icon: `<line x1="20" y1="10" x2="80" y2="10"/><line x1="35" y1="10" x2="35" y2="25"/><line x1="65" y1="10" x2="65" y2="25"/><circle cx="50" cy="34" r="7"/><line x1="50" y1="41" x2="50" y2="65"/><line x1="50" y1="45" x2="35" y2="25"/><line x1="50" y1="45" x2="65" y2="25"/><line x1="50" y1="65" x2="42" y2="85"/><line x1="50" y1="65" x2="58" y2="85"/>`
+      },
+      {
+        name: "Remo con barra",
+        sets: "3 x 10",
+        query: "remo con barra técnica espalda",
+        how: "Torso inclinado hacia adelante unos 45°, espalda recta, llevá la barra hacia el abdomen apretando los omóplatos.",
+        avoid: "Redondear la espalda baja, usar impulso de piernas o del torso, mirar hacia arriba forzando el cuello.",
+        icon: `<line x1="15" y1="75" x2="55" y2="45"/><circle cx="63" cy="37" r="7"/><line x1="55" y1="45" x2="35" y2="55"/><line x1="55" y1="45" x2="60" y2="65"/><line x1="15" y1="75" x2="10" y2="88"/><line x1="55" y1="45" x2="55" y2="72"/><line x1="55" y1="72" x2="48" y2="90"/><line x1="55" y1="72" x2="62" y2="90"/>`
+      },
+      {
+        name: "Curl de bíceps",
+        sets: "3 x 12",
+        query: "curl de biceps mancuernas técnica",
+        how: "Codos pegados al cuerpo, subí la mancuerna flexionando el codo sin mover el hombro, bajá controlado.",
+        avoid: "Balancear el cuerpo para impulsar el peso, adelantar los codos, soltar el peso rápido en la bajada.",
+        icon: `<circle cx="50" cy="20" r="7"/><line x1="50" y1="27" x2="50" y2="55"/><line x1="50" y1="35" x2="35" y2="45"/><line x1="35" y1="45" x2="30" y2="30"/><rect x="24" y="22" width="8" height="10" fill="#e8b23c" stroke="none"/><line x1="50" y1="35" x2="65" y2="35"/><line x1="50" y1="55" x2="42" y2="85"/><line x1="50" y1="55" x2="58" y2="85"/>`
+      },
+      {
+        name: "Curl femoral en máquina",
+        sets: "3 x 12–15",
+        query: "curl femoral maquina técnica",
+        how: "Boca abajo en la máquina, flexioná las rodillas llevando el rodillo hacia los glúteos, bajá controlado.",
+        avoid: "Levantar la cadera de la camilla, usar impulso con tirones bruscos, rango incompleto por peso excesivo.",
+        icon: `<rect x="10" y="55" width="80" height="8" rx="2"/><circle cx="25" cy="42" r="7"/><line x1="25" y1="49" x2="25" y2="55"/><line x1="25" y1="55" x2="65" y2="55"/><path d="M65 55 Q78 55 78 42" /><line x1="25" y1="49" x2="10" y2="45"/>`
+      },
+      {
+        name: "Puente de glúteos (1 pierna)",
+        sets: "3 x 12 por lado",
+        query: "puente de gluteos una pierna técnica",
+        how: "Acostado boca arriba, una pierna apoyada en el piso y la otra estirada o flexionada en el aire; levantá la cadera apretando el glúteo de apoyo.",
+        avoid: "Rotar la cadera hacia un lado, arquear en exceso la lumbar. Si molesta a una pierna, hacer la variante con dos piernas.",
+        icon: `<line x1="15" y1="80" x2="55" y2="80"/><circle cx="20" cy="72" r="7"/><line x1="27" y1="78" x2="65" y2="60"/><line x1="65" y1="60" x2="85" y2="65"/>`
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: "Día 3",
+    sub: "Full body + Core",
+    exercises: [
+      {
+        name: "Sentadilla goblet",
+        sets: "3 x 10",
+        query: "sentadilla goblet técnica",
+        flag: "Rango parcial, sin forzar",
+        how: "Sostené una mancuerna pegada al pecho, bajá en sentadilla manteniendo el pecho arriba y las rodillas alineadas con los pies.",
+        avoid: "Que las rodillas colapsen hacia adentro, bajar más de lo que la cadera permite sin molestia, despegar los talones. Si duele, cambiar por prensa con rango parcial.",
+        icon: `<circle cx="50" cy="20" r="7"/><line x1="50" y1="27" x2="50" y2="50"/><rect x="42" y="35" width="16" height="10" fill="#e8b23c" stroke="none"/><line x1="50" y1="50" x2="35" y2="65"/><line x1="35" y1="65" x2="35" y2="85"/><line x1="50" y1="50" x2="65" y2="65"/><line x1="65" y1="65" x2="65" y2="85"/>`
+      },
+      {
+        name: "Step-up en banco",
+        sets: "3 x 10 por pierna",
+        query: "step up banco técnica ejercicio",
+        how: "Subí todo el cuerpo a un banco o cajón con una pierna, empujando desde el talón, y bajá de forma controlada.",
+        avoid: "Impulsarte con la pierna de abajo, elegir un banco demasiado alto, bajar de golpe sin control. Si molesta, usar un escalón más bajo.",
+        icon: `<rect x="55" y="60" width="30" height="10" fill="#e8b23c" stroke="none"/><circle cx="45" cy="35" r="7"/><line x1="45" y1="42" x2="60" y2="60"/><line x1="60" y1="60" x2="60" y2="85"/><line x1="45" y1="42" x2="30" y2="55"/><line x1="30" y1="55" x2="30" y2="85"/>`
+      },
+      {
+        name: "Remo en máquina / polea",
+        sets: "3 x 10",
+        query: "remo sentado en polea técnica",
+        how: "Sentado, agarrá la manija y tirá hacia el abdomen apretando la espalda, sin balancear mucho el torso.",
+        avoid: "Usar impulso del torso hacia atrás, encoger los hombros hacia las orejas, soltar el peso de golpe en la vuelta.",
+        icon: `<circle cx="50" cy="55" r="7"/><line x1="50" y1="62" x2="50" y2="80"/><line x1="50" y1="65" x2="30" y2="75"/><line x1="50" y1="65" x2="70" y2="75"/><path d="M25 30 Q50 10 75 30" />`
+      },
+      {
+        name: "Abducción de cadera",
+        sets: "3 x 15",
+        query: "abduccion de cadera maquina técnica",
+        how: "Sentado en la máquina con las piernas apoyadas en los soportes, abrí las piernas contra la resistencia hacia afuera y volvé controlado.",
+        avoid: "Usar impulso brusco, rango excesivo si genera molestia en la cadera, apoyar mal la espalda contra el respaldo.",
+        icon: `<circle cx="30" cy="30" r="7"/><line x1="30" y1="37" x2="30" y2="65"/><line x1="30" y1="65" x2="22" y2="88"/><line x1="30" y1="65" x2="55" y2="75"/><path d="M55 75 A18 18 0 0 0 63 45" stroke-dasharray="4 4"/>`
+      },
+      {
+        name: "Abdominales (crunch / rueda)",
+        sets: "3 x 15",
+        query: "rueda abdominal ab wheel técnica",
+        how: "De rodillas, sostené la rueda con ambas manos, rodá hacia adelante estirando el cuerpo y volvé apretando el abdomen.",
+        avoid: "Arquear la zona lumbar al extenderte, ir demasiado lejos sin suficiente fuerza de core todavía — empezar con rango corto.",
+        icon: `<circle cx="20" cy="60" r="7"/><path d="M27 60 Q50 40 73 60" /><circle cx="80" cy="60" r="8" fill="#e8b23c" stroke="none"/>`
+      },
+      {
+        name: "Curl martillo con mancuernas",
+        sets: "3 x 12",
+        query: "curl martillo mancuernas técnica",
+        how: "Mancuernas con agarre neutro (palmas mirándose), codos pegados al cuerpo, subí flexionando el codo sin girar la muñeca ni mover el hombro.",
+        avoid: "Balancear el torso para impulsar el peso, adelantar los codos, hacer el movimiento muy rápido perdiendo control en la bajada.",
+        icon: `<circle cx="50" cy="18" r="7"/><line x1="50" y1="25" x2="50" y2="52"/><line x1="50" y1="30" x2="32" y2="42"/><line x1="32" y1="42" x2="26" y2="26"/><rect x="20" y="18" width="7" height="9" fill="#e8b23c" stroke="none"/><line x1="50" y1="30" x2="68" y2="42"/><line x1="68" y1="42" x2="74" y2="26"/><rect x="70" y="18" width="7" height="9" fill="#e8b23c" stroke="none"/><line x1="50" y1="52" x2="42" y2="82"/><line x1="50" y1="52" x2="58" y2="82"/>`
+      },
+      {
+        name: "Extensión de tríceps en polea",
+        sets: "3 x 12",
+        query: "extension de triceps en polea técnica",
+        how: "De pie frente a la polea alta, codos pegados al torso, extendé los antebrazos hacia abajo hasta estirar el codo y volvé controlado.",
+        avoid: "Despegar los codos del cuerpo, usar impulso con el torso hacia adelante, no completar la extensión por miedo a \"sentir\" el ejercicio.",
+        icon: `<circle cx="35" cy="20" r="7"/><line x1="35" y1="27" x2="35" y2="55"/><line x1="35" y1="32" x2="20" y2="45"/><line x1="35" y1="32" x2="55" y2="25"/><line x1="55" y1="25" x2="55" y2="55"/><rect x="51" y="55" width="8" height="10" fill="#e8b23c" stroke="none"/><line x1="35" y1="55" x2="27" y2="82"/><line x1="35" y1="55" x2="43" y2="82"/><path d="M70 15 L70 60" stroke-dasharray="4 4"/>`
+      }
+    ]
+  }
+];
+
+let currentDay = 1;
+// done[dayId] = Set of exercise indices marked complete (in-memory only, resets on reload)
+const done = { 1: new Set(), 2: new Set(), 3: new Set() };
+// open[dayId] = index of currently expanded card, or -1
+const openCard = { 1: -1, 2: -1, 3: -1 };
+
+function renderTabbar(){
+  const tabbar = document.getElementById('tabbar');
+  tabbar.innerHTML = DAYS.map(d => `
+    <div class="tab ${d.id === currentDay ? 'active' : ''}" onclick="switchDay(${d.id})">
+      ${d.label}
+      <span class="sub">${d.sub}</span>
+    </div>
+  `).join('');
+}
+
+function switchDay(id){
+  currentDay = id;
+  renderTabbar();
+  renderContent();
+}
+
+function toggleDone(dayId, idx, ev){
+  ev.stopPropagation();
+  const set = done[dayId];
+  if(set.has(idx)) set.delete(idx); else set.add(idx);
+  renderContent();
+}
+
+function toggleOpen(dayId, idx){
+  openCard[dayId] = openCard[dayId] === idx ? -1 : idx;
+  renderContent();
+}
+
+function renderContent(){
+  const day = DAYS.find(d => d.id === currentDay);
+  const content = document.getElementById('content');
+  const doneSet = done[currentDay];
+
+  content.innerHTML = `
+    <div class="day-heading">
+      <div class="title">${day.sub}</div>
+      <div class="count">${doneSet.size}/${day.exercises.length} completados</div>
+    </div>
+    ${day.exercises.map((ex, idx) => {
+      const isDone = doneSet.has(idx);
+      const isOpen = openCard[currentDay] === idx;
+      const searchUrl = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(ex.query);
+      return `
+        <div class="card ${isDone ? 'done' : ''} ${isOpen ? 'open' : ''}">
+          <div class="card-head" onclick="toggleOpen(${currentDay}, ${idx})">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 100 100" fill="none" stroke="#eef3ee" stroke-width="3" stroke-linecap="round">${ex.icon}</svg>
+            </div>
+            <div class="card-titles">
+              <div class="ex-name">${ex.name}</div>
+              <div class="ex-sets">${ex.sets}</div>
+            </div>
+            <div class="check" onclick="toggleDone(${currentDay}, ${idx}, event)">${isDone ? '✓' : ''}</div>
+            <div class="chevron">▾</div>
+          </div>
+          <div class="card-body">
+            ${ex.flag ? `<div class="note">${ex.flag}</div>` : ``}
+            <p class="how"><b>Cómo hacerlo:</b> ${ex.how}</p>
+            <p class="avoid"><b>Evitar:</b> ${ex.avoid}</p>
+            <a class="photo-btn" href="${searchUrl}" target="_blank" rel="noopener">📷 Ver fotos reales</a>
+          </div>
+        </div>
+      `;
+    }).join('')}
+  `;
+
+  const totalDone = Object.values(done).reduce((a,s) => a + s.size, 0);
+  const totalEx = DAYS.reduce((a,d) => a + d.exercises.length, 0);
+  document.getElementById('progressLabel').textContent = `${doneSet.size}/${day.exercises.length} hoy`;
+  document.getElementById('progressFill').style.width = (doneSet.size / day.exercises.length * 100) + '%';
+}
+
+renderTabbar();
+renderContent();
+</script>
+
+</body>
+</html>
